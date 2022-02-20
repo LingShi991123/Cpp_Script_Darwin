@@ -144,7 +144,7 @@ int main()
 			//攻击boss
 			Boss();
 			//重置
-			if (i == 2)
+			if (i == 56)
 			{
 				//传送
 				Teleport();
