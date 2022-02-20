@@ -1,19 +1,19 @@
 #include <windows.h>
 #include <stdio.h>
-//ÒÆ¶¯Êó±ê
+//ç§»åŠ¨é¼ æ ‡
 void MoveTo(int A,int B)
 {
 	SetCursorPos(A, B);
 	Sleep(200);
 }
-//×ó¼ü
+//å·¦é”®
 void left()
 {
 	mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
 	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
 	Sleep(200);
 }
-//°´ÏÂºÍËÉ¿ª
+//æŒ‰ä¸‹å’Œæ¾å¼€
 void press(int Press)
 {
 	keybd_event(Press, 0, 0, 0);
@@ -21,30 +21,19 @@ void press(int Press)
 	keybd_event(Press, 0, KEYEVENTF_KEYUP, 0);
 	Sleep(200);
 }
-//°´ÏÂ
+//æŒ‰ä¸‹
 void down(int Down)
 {
 	keybd_event(Down, 0, 0, 0);
 	Sleep(100);
 }
-//ËÉ¿ª
+//æ¾å¼€
 void up(int Up)
 {
 	keybd_event(Up, 0, KEYEVENTF_KEYUP, 0);
 	Sleep(100);
 }
-//´ï¶ûÎÄ
-void daerwen()
-{
-	press(68);
-	press(65);
-	press(69);
-	press(82);
-	press(87);
-	press(69);
-	press(78);
-}
-//@
+//@è¾¾å°”æ–‡
 void hi()
 {
 	MoveTo(524, 568);
@@ -53,14 +42,20 @@ void hi()
 	Sleep(200);
 	press(50);
 	up(VK_LSHIFT);
-	daerwen();
+	press(68);
+	press(65);
+	press(69);
+	press(82);
+	press(87);
+	press(69);
+	press(78);
 	press(32);
 	MoveTo(508, 455);
 	Sleep(7500);
 	left();
 }
 //ctrl-v
-void ctrlv()
+void CtrlV()
 {
 	down(VK_LCONTROL);
 	Sleep(200);
@@ -68,7 +63,7 @@ void ctrlv()
 	up(VK_LCONTROL);
 	Sleep(200);
 }
-//´«ËÍ
+//ä¼ é€
 void Teleport()
 {
 	hi();
@@ -89,7 +84,7 @@ void Teleport()
 	MoveTo(1064, 646);
 	left();
 }
-//¹¥»÷boss
+//æ”»å‡»boss
 void Boss()
 {
 	hi();
@@ -109,16 +104,16 @@ void Boss()
 	MoveTo(1064, 646);
 	left();
 }
-//¹¥»÷¹ÖÎï
+//æ”»å‡»æ€ªç‰©
 void Attack()
 {
 	hi();
 	MoveTo(524, 568);
-	ctrlv();
+	CtrlV();
 	MoveTo(1064, 646);
 	left();
 }
-//¿ªÊ¼Ê±Éè¶¨
+//å¼€å§‹æ—¶è®¾å®š
 void Start()
 {
 	printf("3\n");
@@ -127,13 +122,13 @@ void Start()
 	Sleep(1000);
 	printf("1\n");
 	Sleep(1000);
-	printf("¿ªÊ¼ÔËĞĞ½Å±¾£¡");
+	printf("å¼€å§‹è¿è¡Œè„šæœ¬ï¼");
 	MoveTo(1260, 100);
 	left();
 	Sleep(20);
 	Teleport();
 }
-//Ö÷³ÌĞò
+//ä¸»ç¨‹åº
 int main()
 {
 	Start();
@@ -141,17 +136,17 @@ int main()
 	{
 		for (int i = 1; i <= 56; i++)
 		{
-			//¹¥»÷¹ÖÎï
+			//æ”»å‡»æ€ªç‰©
 			for (int j = 1; j <= 6; j++)
 			{
 				Attack();
 			}
-			//¹¥»÷boss
+			//æ”»å‡»boss
 			Boss();
-			//ÖØÖÃ
+			//é‡ç½®
 			if (i == 2)
 			{
-				//´«ËÍ
+				//ä¼ é€
 				Teleport();
 			}
 		}
